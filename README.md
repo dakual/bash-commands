@@ -1,3 +1,8 @@
+```sh
+!!            # Run the last command
+history
+```
+
 ### SYSTEM INFORMATION
 ```sh
 uname -a                # Display Linux system information
@@ -57,6 +62,8 @@ usermod -aG sales john  # Add the john account to the sales group
 ls -al            # List all files in a long listing (detailed) format
 pwd               # Display the present working directory
 mkdir directory   # Create a directory
+mkdir foo bar     # Create multiple directories
+mkdir -pv dir/{foo,bar}  # Create multiple nested directories
 rm file           # Remove (delete) file
 rm -r directory   # Remove the directory and its contents recursively
 rm -f file        # Force removal of file without prompting for confirmation
@@ -65,10 +72,16 @@ cp file1 file2    # Copy file1 to file2
 cp -r source_directory destination  # Copy source_directory recursively to destination.
 mv file1 file2    # Rename or move file1 to file2.
 ln -s /path/to/file linkname        # Create symbolic link to linkname
-touch file        # Create an empty file or update the modification times.
+touch file             # Create an empty file or update the modification times.
+touch {foo,bar}.txt    # Create multiple files
+touch test{1..3}       # Create test1, test2 and test3 files
 cat file          # View the contents of file
 less file         # Browse through a text file
 head file         # Display the first 10 lines of file
+stat file         # List size, created and modified timestamps for a file
+tree              # List directory and file tree
+tree -a           # List directory and file tree including hidden
+tree -d           # List directory tree 
 ```
 
 ### PROCESS MANAGEMENT
@@ -168,15 +181,30 @@ scp file.txt server:/tmp          # Secure copy file.txt to the /tmp folder on s
 scp server:/var/www/*.html /tmp   # Copy *.html files from server to the local /tmp folder.
 scp -r server:/var/www /tmp       # Copy all files and directories recursively from server to the current system's /tmp folder.
 rsync -a /home /backups/          # Synchronize /home to /backups/home
-rsync -avz /home server:/backups/ # Synchronize files/directories between the local and remote system with compression enabled
+rsync -avz /foo username@hostname:/bar  # Copy local directory to remote directory
+rsync -avz username@hostname:/foo /bar  # Copy remote directory to local directory
 ```
 
+### DISK USAGE
 ```sh
-
+df -h     # Show free and used space on mounted filesystems
+df -i     # Show free and used inodes on mounted filesystems
+fdisk -l  # Display disks partitions sizes and types
+du -ah    # Display disk usage for all files and directories in human readable format
+du -sh    # Display total disk usage off the current directory
 ```
 
+### STANDARD OUTPUT, ERROR, INPUT
 ```sh
+echo "foo" > bar.txt       # Overwrite file with content
+echo "foo" >> bar.txt      # Append to file with content
 
+ls exists 1> stdout.txt    # Redirect the standard output to a file
+ls noexist 2> stderror.txt # Redirect the standard error output to a file
+ls 2>&1 out.txt            # Redirect standard output and error to a file
+ls > /dev/null             # Discard standard output and error
+
+read foo                   # Read from standard input and write to the variable foo
 ```
 
 ```sh
