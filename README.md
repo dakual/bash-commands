@@ -42,3 +42,81 @@ lsof -u user                # List files opened by user
 watch df -h                 # Execute "df -h", showing periodic updates
 ```
 
+### USER INFORMATION AND MANAGEMENT
+```sh
+id              # Display the user and group ids of your current user.
+last            # Display the last users who have logged onto the system.
+who             # Show who is logged into the system.
+w               # Show who is logged in and what they are doing.
+groupadd test   # Create a group named "test".
+useradd -c "John Smith" -m john # Create an account named john, with a comment of "John Smith" and create the user's home directory.
+userdel john    # Delete the john account.
+usermod -aG sales john  # Add the john account to the sales group
+```
+
+### FILE AND DIRECTORY COMMANDS
+```sh
+ls -al            # List all files in a long listing (detailed) format
+pwd               # Display the present working directory
+mkdir directory   # Create a directory
+rm file           # Remove (delete) file
+rm -r directory   # Remove the directory and its contents recursively
+rm -f file        # Force removal of file without prompting for confirmation
+rm -rf directory  # Forcefully remove directory recursively
+cp file1 file2    # Copy file1 to file2
+cp -r source_directory destination  # Copy source_directory recursively to destination.
+mv file1 file2    # Rename or move file1 to file2.
+ln -s /path/to/file linkname        # Create symbolic link to linkname
+touch file        # Create an empty file or update the modification times.
+cat file          # View the contents of file
+less file         # Browse through a text file
+head file         # Display the first 10 lines of file
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
