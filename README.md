@@ -83,6 +83,9 @@ tree              # List directory and file tree
 tree -a           # List directory and file tree including hidden
 tree -d           # List directory tree
 wc file           # List number of lines words and characters in the file
+type wget         # Find the binary
+which wget        # Find the binary
+whereis wget      # Find the binary, source, and manual page files
 ```
 
 ### PROCESS MANAGEMENT
@@ -121,6 +124,15 @@ rwx rwx r-x     chmod 775 filename
 rwx r-x r-x     chmod 755 filename
 rw- rw- r--     chmod 664 filename
 rw- r-- r--     chmod 644 filename
+
+chmod +100 foo.sh        # Add 1 to the user permission
+chmod -100 foo.sh        # Subtract 1 from the user permission
+chmod u+x foo.sh         # Give the user execute permission
+chmod g+x foo.sh         # Give the group execute permission
+chmod u-x,g-x foo.sh     # Take away the user and group execute permission
+chmod u+x,g+x,o+x foo.sh # Give everybody execute permission
+chmod a+x foo.sh         # Give everybody execute permission
+chmod +x foo.sh          # Give everybody execute permission
 ```
 
 ### NETWORKING
@@ -178,8 +190,18 @@ dpkg -i package.deb       # Install package from local file named package.rpm
 grep pattern file         # Search for pattern in file
 grep -r pattern directory # Search recursively for pattern in directory
 locate name               # Find files and directories by name
-find /home/john -name 'prefix*' # Find files in /home/john that start with "prefix".
-find /home -size +100M    # Find files larger than 100MB in /home
+locate f*.txt             # Find file starting with 'f'
+find /home -name 'prefix*'              # Find files in /home/john that start with "prefix".
+find /home -size +100M                  # Find files larger than 100MB in /home
+find /path -name foo.txt                # Find a file
+find /path -iname foo.txt               # Find a file with case insensitive search
+find /path -name "*.txt"                # Find all text files
+find /path -name foo.txt -delete        # Find a file and delete it
+find /path -type f -name foo.txt        # Find a file
+find /path -type d -name foo            # Find a directory
+find /path -type l -name foo.txt        # Find a symbolic link
+find /path -type f -mtime +30           # Find files that haven't been modified in 30 days
+find /path -type f -mtime +30 -delete   # Delete files that haven't been modified in 30 days
 ```
 
 ### SSH AND FILE TRANSFERS
@@ -218,14 +240,82 @@ ls > /dev/null             # Discard standard output and error
 read foo                   # Read from standard input and write to the variable foo
 ```
 
+### FIND IN FILES
 ```sh
-
+grep 'foo' /bar.txt        # Search for 'foo' in file 'bar.txt'
+grep 'foo' /bar -r         # Search for 'foo' in directory 'bar'
+grep 'foo' /bar -R         # Search for 'foo' in directory 'bar' and follow symbolic links
+grep 'foo' /bar -l         # Show only files that match
+grep 'foo' /bar -L         # Show only files that don't match
+grep 'Foo' /bar -i         # Case insensitive search
+grep 'foo' /bar -x         # Match the entire line
+grep 'foo' /bar -C         # Add N line of context above and below each search result
+grep 'foo' /bar -v         # Show only lines that don't match
+grep 'foo' /bar -c         # Count the number lines that match
+grep 'foo' /bar -n         # Add line numbers
+grep 'foo' /bar --colour   # Add colour to output
 ```
 
+### REPLACE IN FILES
 ```sh
-
+sed 's/fox/bear/g' foo.txt               # Replace fox with bear in foo.txt and output to console
+sed 's/fox/bear/gi' foo.txt              # Replace fox (case insensitive) with bear in foo.txt and output to console
+sed 's/red fox/blue bear/g' foo.txt      # Replace red with blue and fox with bear in foo.txt and output to console
+sed 's/fox/bear/g' foo.txt > bar.txt     # Replace fox with bear in foo.txt and save in bar.txt
+sed 's/fox/bear/g' foo.txt -i            # Replace fox with bear and overwrite foo.txt
 ```
 
+### COMPRESSING FILES
+------------------------
+#### ZIP
 ```sh
+zip foo.zip /bar.txt            # Compress bar.txt into foo.zip
+zip foo.zip /bar.txt /baz.txt   # Compress bar.txt and baz.txt into foo.zip
+zip foo.zip /{bar,baz}.txt      # Compress bar.txt and baz.txt into foo.zip
+zip -r foo.zip /bar             # Compress directory bar into foo.zip
+```
 
+#### GZIP
+```sh
+gzip /bar.txt foo.gz    # Compress bar.txt into foo.gz and then delete bar.txt
+gzip -k /bar.txt foo.gz # Compress bar.txt into foo.gz
+```
+
+#### TAR
+```sh
+tar -czf foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
+tar -czf foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
+tar -czf foo.tgz /bar              # Compress directory bar into foo.tgz
+```
+
+### DECOMPRESSING FILES
+------------------------
+#### UNZIP
+```sh
+unzip foo.zip      # Unzip foo.zip into current directory
+```
+
+#### GUNZIP
+```sh
+gunzip foo.gz      # Unzip foo.gz into current directory and delete foo.gz
+gunzip -k foo.gz   # Unzip foo.gz into current directory
+```
+
+#### TAR
+```sh
+tar -xzf foo.tar.gz  # Un-compress foo.tar.gz into current directory
+tar -xf foo.tar      # Un-combine foo.tar into current directory
+```
+
+### SHUTDOWN AND REBOOT
+```sh
+shutdown                     # Shutdown in 1 minute
+shutdown now "message"       # Immediately shut down
+shutdown +5 "message"        # Shutdown in 5 minutes
+shutdown -r                  # Reboot in 1 minute
+shutdown -r now "message"    # Immediately reboot
+shutdown -r +5 "message"     # Reboot in 5 minutes
+shutdown -c                  # Cancel a shutdown or reboot
+reboot                       # Reboot now
+reboot -f                    # Force a reboot
 ```
