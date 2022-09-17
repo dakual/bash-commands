@@ -99,12 +99,30 @@ rw- rw- r--     chmod 664 filename
 rw- r-- r--     chmod 644 filename
 ```
 
+### NETWORKING
 ```sh
-
+ip a                  # Display all network interfaces and IP address
+ip addr show dev eth0 # Display eth0 address and details
+ethtool eth0          # Query or control network driver and hardware settings
+ping host             # Send ICMP echo request to host
+whois domain          # Display whois information for domain
+dig domain            # Display DNS information for domain
+dig -x IP_ADDRESS     # Reverse lookup of IP_ADDRESS
+host domain           # Display DNS IP address for domain
+hostname -i           # Display the network address of the host name.
+hostname -I           # Display all local IP addresses of the host.
+wget http://domain.com/file # Download http://domain.com/file
+netstat -nutlp        # Display listening tcp and udp ports and corresponding programs
 ```
 
+### ARCHIVES (TAR FILES)
 ```sh
-
+tar cf archive.tar directory      # Create tar named archive.tar containing directory.
+tar xf archive.tar                # Extract the contents from archive.tar.
+tar czf archive.tar.gz directory  # Create a gzip compressed tar file name archive.tar.gz.
+tar xzf archive.tar.gz            # Extract a gzip compressed tar file.
+tar cjf archive.tar.bz2 directory # Create a tar file with bzip2 compression
+tar xjf archive.tar.bz2           # Extract a bzip2 compressed tar file.
 ```
 
 ```sh
