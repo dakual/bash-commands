@@ -125,16 +125,50 @@ tar cjf archive.tar.bz2 directory # Create a tar file with bzip2 compression
 tar xjf archive.tar.bz2           # Extract a bzip2 compressed tar file.
 ```
 
+### INSTALLING PACKAGES (centos)
 ```sh
+yum search keyword  # Search for a package by keyword.
+yum install package # Install package.
+yum info package    # Display description and summary information about package.
+rpm -i package.rpm  # Install package from local file named package.rpm
+yum remove package  # Remove/uninstall package.
 
+tar zxvf sourcecode.tar.gz  # Install software from source code.
+cd sourcecode
+./configure
+make
+make install
 ```
 
+### INSTALLING PACKAGES (debian)
 ```sh
-
+apt-cache search keyword  # Search for a package by keyword.
+apt-get install package   # Install package.
+apt-cache show package    # Display description and summary information about package.
+apt-get remove package    # Remove/uninstall package.
+dpkg -i package.deb       # Install package from local file named package.rpm
 ```
 
+### SEARCH
 ```sh
+grep pattern file         # Search for pattern in file
+grep -r pattern directory # Search recursively for pattern in directory
+locate name               # Find files and directories by name
+find /home/john -name 'prefix*' # Find files in /home/john that start with "prefix".
+find /home -size +100M    # Find files larger than 100MB in /home
+```
 
+### SSH AND FILE TRANSFERS
+```sh
+ssh host                  # Connect to host as your local username.
+ssh user@host             # Connect to host as user
+ssh -p port user@host     # Connect to host using port
+
+scp file.txt server:/tmp          # Secure copy file.txt to the /tmp folder on server
+scp server:/var/www/*.html /tmp   # Copy *.html files from server to the local /tmp folder.
+scp -r server:/var/www /tmp       # Copy all files and directories recursively from server to the current system's /tmp folder.
+rsync -a /home /backups/          # Synchronize /home to /backups/home
+rsync -avz /home server:/backups/ # Synchronize files/directories between the local and remote system with compression enabled
 ```
 
 ```sh
