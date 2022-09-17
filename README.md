@@ -29,8 +29,6 @@ badblocks -s /dev/sda # Test for unreadable blocks on disk sda
 
 ### PERFORMANCE MONITORING AND STATISTICS
 ```sh
-top                         # Display and manage the top processes
-htop                        # Interactive process viewer (top alternative)
 mpstat 1                    # Display processor related statistics
 vmstat 1                    # Display virtual memory statistics
 iostat 1                    # Display I/O statistics
@@ -73,12 +71,32 @@ less file         # Browse through a text file
 head file         # Display the first 10 lines of file
 ```
 
+### PROCESS MANAGEMENT
 ```sh
-
+ps                        # Display your currently running processes
+ps -ef                    # Display all the currently running processes on the system.
+ps -ef | grep processname # Display process information for processname
+top                       # Display and manage the top processes
+htop                      # Interactive process viewer (top alternative)
+kill pid                  # Kill process with process ID of pid
+killall processname       # Kill all processes named processname
+program &                 # Start program in the background
+bg                        # Display stopped or background jobs
+fg                        # Brings the most recent background job to foreground
+fg n                      # Brings job n to the foreground
 ```
 
+### FILE PERMISSIONS
+![Optional Text](../master/images/linux-permissions-chart.png)
 ```sh
+PERMISSION      EXAMPLE
 
+  U   G   W
+rwx rwx rwx     chmod 777 filename
+rwx rwx r-x     chmod 775 filename
+rwx r-x r-x     chmod 755 filename
+rw- rw- r--     chmod 664 filename
+rw- r-- r--     chmod 644 filename
 ```
 
 ```sh
