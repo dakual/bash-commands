@@ -3,7 +3,7 @@
 history
 ```
 
-### SYSTEM INFORMATION
+## SYSTEM INFORMATION
 ```sh
 uname -a                # Display Linux system information
 uname -r                # Display kernel release information
