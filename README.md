@@ -360,27 +360,3 @@ curl -X POST -H --data-urlencode foo="bar" http://example.com  # POST URL Form E
 wget https://example.com/file.txt .           # Download a file to the current directory
 wget -O foo.txt https://example.com/file.txt  # Output to a file with the specified name
 ```
-
-```sh
-
-```
-
-```sh
-
-```
-
-```sh
-
-```
-
-```sh
-
-```
-
-```sh
-
-```
-
-```sh
-
-```
