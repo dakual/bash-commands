@@ -1,6 +1,7 @@
 ```sh
 !!            # Run the last command
 history
+date                   # Print the date and time
 ```
 
 ## SYSTEM INFORMATION
@@ -24,8 +25,9 @@ dmesg                 # Display messages in kernel ring buffer
 cat /proc/cpuinfo     # Display CPU information
 cat /proc/meminfo     # Display memory information
 free -h               # Display free and used memory
-lspci -tv             # Display PCI devices
-lsusb -tv             # Display USB devices
+lsusb                 # List USB devices
+lspci                 # List PCI hardware
+lshw                  # List all hardware
 dmidecode             # Display DMI/SMBIOS (hardware info) from the BIOS
 hdparm -i /dev/sda    # Show info about disk sda
 hdparm -tT /dev/sda   # Perform a read speed test on disk sda
@@ -96,6 +98,7 @@ ps -ef | grep processname # Display process information for processname
 top                       # Display and manage the top processes
 htop                      # Interactive process viewer (top alternative)
 kill pid                  # Kill process with process ID of pid
+kill -9 pid               # Force Kill process
 killall processname       # Kill all processes named processname
 program &                 # Start program in the background
 bg                        # Display stopped or background jobs
@@ -149,6 +152,17 @@ hostname -i           # Display the network address of the host name.
 hostname -I           # Display all local IP addresses of the host.
 wget http://domain.com/file # Download http://domain.com/file
 netstat -nutlp        # Display listening tcp and udp ports and corresponding programs
+netstat -i            # List all network interfaces and in/out usage
+netstat -l            # List all open ports
+traceroute example.com      # List all servers the network traffic goes through
+
+nmap 0.0.0.0                # Scan for the 1000 most common open ports on localhost
+nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 65535
+nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
+nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
+
+host example.com            # Show the IPv4 and IPv6 addresses
+dig example.com             # Show complete DNS information
 ```
 
 ## ARCHIVES (TAR FILES)
@@ -316,4 +330,63 @@ shutdown -r +5 "message"     # Reboot in 5 minutes
 shutdown -c                  # Cancel a shutdown or reboot
 reboot                       # Reboot now
 reboot -f                    # Force a reboot
+```
+
+## SCHEDULED TASKS
+```sh
+   *      *         *         *           *
+Minute, Hour, Day of month, Month, Day of the week
+```
+
+```sh
+crontab -l                 # List cron tab
+crontab -e                 # Edit cron tab in Vim
+crontab /path/crontab      # Load cron tab from a file
+crontab -l > /path/crontab # Save cron tab to a file
+
+* * * * * foo              # Run foo every minute
+*/15 * * * * foo           # Run foo every 15 minutes
+0 * * * * foo              # Run foo every hour
+15 6 * * * foo             # Run foo daily at 6:15 AM
+44 4 * * 5 foo             # Run foo every Friday at 4:44 AM
+0 0 1 * * foo              # Run foo at midnight on the first of the month
+0 0 1 1 * foo              # Run foo at midnight on the first of the year
+```
+
+## HTTP REQUESTS
+```sh
+curl https://example.com                 # Return response body
+curl -i https://example.com              # Include status code and HTTP headers
+curl -L https://example.com              # Follow redirects
+curl -o foo.txt https://example.com      # Output to a text file
+curl -H "User-Agent: Foo" https://example.com # Add a HTTP header
+curl -X POST -H "Content-Type: application/json" -d '{"foo":"bar"}' https://example.com # POST JSON
+curl -X POST -H --data-urlencode foo="bar" http://example.com  # POST URL Form Encoded
+
+wget https://example.com/file.txt .           # Download a file to the current directory
+wget -O foo.txt https://example.com/file.txt  # Output to a file with the specified name
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
 ```
