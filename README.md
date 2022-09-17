@@ -18,7 +18,7 @@ w                       # Display who is online
 whoami                  # Who you are logged in as
 ```
 
-### HARDWARE INFORMATION
+## HARDWARE INFORMATION
 ```sh
 dmesg                 # Display messages in kernel ring buffer
 cat /proc/cpuinfo     # Display CPU information
@@ -32,7 +32,7 @@ hdparm -tT /dev/sda   # Perform a read speed test on disk sda
 badblocks -s /dev/sda # Test for unreadable blocks on disk sda
 ```
 
-### PERFORMANCE MONITORING AND STATISTICS
+## PERFORMANCE MONITORING AND STATISTICS
 ```sh
 mpstat 1                    # Display processor related statistics
 vmstat 1                    # Display virtual memory statistics
@@ -45,7 +45,7 @@ lsof -u user                # List files opened by user
 watch df -h                 # Execute "df -h", showing periodic updates
 ```
 
-### USER INFORMATION AND MANAGEMENT
+## USER INFORMATION AND MANAGEMENT
 ```sh
 id              # Display the user and group ids of your current user.
 last            # Display the last users who have logged onto the system.
@@ -57,7 +57,7 @@ userdel john    # Delete the john account.
 usermod -aG sales john  # Add the john account to the sales group
 ```
 
-### FILE AND DIRECTORY COMMANDS
+## FILE AND DIRECTORY COMMANDS
 ```sh
 ls -al            # List all files in a long listing (detailed) format
 pwd               # Display the present working directory
@@ -88,7 +88,7 @@ which wget        # Find the binary
 whereis wget      # Find the binary, source, and manual page files
 ```
 
-### PROCESS MANAGEMENT
+## PROCESS MANAGEMENT
 ```sh
 ps                        # Display your currently running processes
 ps -ef                    # Display all the currently running processes on the system.
@@ -103,7 +103,7 @@ fg                        # Brings the most recent background job to foreground
 fg n                      # Brings job n to the foreground
 ```
 
-### FILE PERMISSIONS
+## FILE PERMISSIONS
 ![Optional Text](../master/images/linux-permissions-chart.png)
 | # | Permission              | rwx | Binary |
 | - | -                       | -   | -      |
@@ -135,7 +135,7 @@ chmod a+x foo.sh         # Give everybody execute permission
 chmod +x foo.sh          # Give everybody execute permission
 ```
 
-### NETWORKING
+## NETWORKING
 ```sh
 ip a                  # Display all network interfaces and IP address
 ip addr show dev eth0 # Display eth0 address and details
@@ -151,7 +151,7 @@ wget http://domain.com/file # Download http://domain.com/file
 netstat -nutlp        # Display listening tcp and udp ports and corresponding programs
 ```
 
-### ARCHIVES (TAR FILES)
+## ARCHIVES (TAR FILES)
 ```sh
 tar cf archive.tar directory      # Create tar named archive.tar containing directory.
 tar xf archive.tar                # Extract the contents from archive.tar.
@@ -161,7 +161,7 @@ tar cjf archive.tar.bz2 directory # Create a tar file with bzip2 compression
 tar xjf archive.tar.bz2           # Extract a bzip2 compressed tar file.
 ```
 
-### INSTALLING PACKAGES (centos)
+## INSTALLING PACKAGES (centos)
 ```sh
 yum search keyword  # Search for a package by keyword.
 yum install package # Install package.
@@ -176,7 +176,7 @@ make
 make install
 ```
 
-### INSTALLING PACKAGES (debian)
+## INSTALLING PACKAGES (debian)
 ```sh
 apt-cache search keyword  # Search for a package by keyword.
 apt-get install package   # Install package.
@@ -185,7 +185,7 @@ apt-get remove package    # Remove/uninstall package.
 dpkg -i package.deb       # Install package from local file named package.rpm
 ```
 
-### SEARCH
+## SEARCH
 ```sh
 grep pattern file         # Search for pattern in file
 grep -r pattern directory # Search recursively for pattern in directory
@@ -204,7 +204,7 @@ find /path -type f -mtime +30           # Find files that haven't been modified 
 find /path -type f -mtime +30 -delete   # Delete files that haven't been modified in 30 days
 ```
 
-### SSH AND FILE TRANSFERS
+## SSH AND FILE TRANSFERS
 ```sh
 ssh host                  # Connect to host as your local username.
 ssh user@host             # Connect to host as user
@@ -218,7 +218,7 @@ rsync -avz /foo username@hostname:/bar  # Copy local directory to remote directo
 rsync -avz username@hostname:/foo /bar  # Copy remote directory to local directory
 ```
 
-### DISK USAGE
+## DISK USAGE
 ```sh
 df -h     # Show free and used space on mounted filesystems
 df -i     # Show free and used inodes on mounted filesystems
@@ -227,7 +227,7 @@ du -ah    # Display disk usage for all files and directories in human readable f
 du -sh    # Display total disk usage off the current directory
 ```
 
-### STANDARD OUTPUT, ERROR, INPUT
+## STANDARD OUTPUT, ERROR, INPUT
 ```sh
 echo "foo" > bar.txt       # Overwrite file with content
 echo "foo" >> bar.txt      # Append to file with content
@@ -240,7 +240,7 @@ ls > /dev/null             # Discard standard output and error
 read foo                   # Read from standard input and write to the variable foo
 ```
 
-### FIND IN FILES
+## FIND IN FILES
 ```sh
 grep 'foo' /bar.txt        # Search for 'foo' in file 'bar.txt'
 grep 'foo' /bar -r         # Search for 'foo' in directory 'bar'
@@ -256,7 +256,7 @@ grep 'foo' /bar -n         # Add line numbers
 grep 'foo' /bar --colour   # Add colour to output
 ```
 
-### REPLACE IN FILES
+## REPLACE IN FILES
 ```sh
 sed 's/fox/bear/g' foo.txt               # Replace fox with bear in foo.txt and output to console
 sed 's/fox/bear/gi' foo.txt              # Replace fox (case insensitive) with bear in foo.txt and output to console
@@ -265,9 +265,8 @@ sed 's/fox/bear/g' foo.txt > bar.txt     # Replace fox with bear in foo.txt and 
 sed 's/fox/bear/g' foo.txt -i            # Replace fox with bear and overwrite foo.txt
 ```
 
-### COMPRESSING FILES
-------------------------
-#### ZIP
+## COMPRESSING FILES
+### ZIP
 ```sh
 zip foo.zip /bar.txt            # Compress bar.txt into foo.zip
 zip foo.zip /bar.txt /baz.txt   # Compress bar.txt and baz.txt into foo.zip
@@ -275,39 +274,38 @@ zip foo.zip /{bar,baz}.txt      # Compress bar.txt and baz.txt into foo.zip
 zip -r foo.zip /bar             # Compress directory bar into foo.zip
 ```
 
-#### GZIP
+### GZIP
 ```sh
 gzip /bar.txt foo.gz    # Compress bar.txt into foo.gz and then delete bar.txt
 gzip -k /bar.txt foo.gz # Compress bar.txt into foo.gz
 ```
 
-#### TAR
+### TAR
 ```sh
 tar -czf foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
 tar -czf foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
 tar -czf foo.tgz /bar              # Compress directory bar into foo.tgz
 ```
 
-### DECOMPRESSING FILES
-------------------------
-#### UNZIP
+## DECOMPRESSING FILES
+### UNZIP
 ```sh
 unzip foo.zip      # Unzip foo.zip into current directory
 ```
 
-#### GUNZIP
+### GUNZIP
 ```sh
 gunzip foo.gz      # Unzip foo.gz into current directory and delete foo.gz
 gunzip -k foo.gz   # Unzip foo.gz into current directory
 ```
 
-#### TAR
+### TAR
 ```sh
 tar -xzf foo.tar.gz  # Un-compress foo.tar.gz into current directory
 tar -xf foo.tar      # Un-combine foo.tar into current directory
 ```
 
-### SHUTDOWN AND REBOOT
+## SHUTDOWN AND REBOOT
 ```sh
 shutdown                     # Shutdown in 1 minute
 shutdown now "message"       # Immediately shut down
