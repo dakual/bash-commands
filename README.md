@@ -226,13 +226,24 @@ rsync -avz /foo username@hostname:/bar  # Copy local directory to remote directo
 rsync -avz username@hostname:/foo /bar  # Copy remote directory to local directory
 ```
 
-## DISK USAGE
+## DISK USAGE AND MANAGEMENT
 ```sh
 df -h     # Show free and used space on mounted filesystems
 df -i     # Show free and used inodes on mounted filesystems
 fdisk -l  # Display disks partitions sizes and types
 du -ah    # Display disk usage for all files and directories in human readable format
 du -sh    # Display total disk usage off the current directory
+
+mount -t ext4                             # List Specific File Systems
+mount /dev/sdb1 /mnt/media                # Mount a File System
+mount -t iso9660 -o ro /dev/cdrom /mnt    # Mount a CD-ROM
+mount /image.iso /media/iso-file -o loop  # Mount ISO Files
+mount --move [olddir] [newdir]            # Move a Mount
+umount /dev/sdb1                          # Unmount a File System
+umount -l [device]                        # Lazy Unmount
+umount -f [device]                        # Forced Unmount
+
+fdisk -l                                  # Find the devices
 ```
 
 ## STANDARD OUTPUT, ERROR, INPUT
