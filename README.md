@@ -1,9 +1,3 @@
-```sh
-!!            # Run the last command
-history
-date                   # Print the date and time
-```
-
 ## SYSTEM INFORMATION
 ```sh
 uname -a                # Display Linux system information
