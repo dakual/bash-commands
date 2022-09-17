@@ -11,6 +11,10 @@ date                    # Show the current date and time
 cal                     # Show this month's calendar
 w                       # Display who is online
 whoami                  # Who you are logged in as
+!!                      # Run the last command
+history                 # Reviewing your Previous Bash History
+history 5               # Last 5 history
+history | grep cd       # Filter cd comands
 ```
 
 ## HARDWARE INFORMATION
