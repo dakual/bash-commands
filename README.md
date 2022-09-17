@@ -102,16 +102,6 @@ fg n                      # Brings job n to the foreground
 
 ### FILE PERMISSIONS
 ![Optional Text](../master/images/linux-permissions-chart.png)
-```sh
-PERMISSION      EXAMPLE
-
-  U   G   W
-rwx rwx rwx     chmod 777 filename
-rwx rwx r-x     chmod 775 filename
-rwx r-x r-x     chmod 755 filename
-rw- rw- r--     chmod 664 filename
-rw- r-- r--     chmod 644 filename
-
 | # | Permission              | rwx | Binary |
 | - | -                       | -   | -      |
 | 7 | read, write and execute | rwx | 111    |
@@ -122,18 +112,15 @@ rw- r-- r--     chmod 644 filename
 | 2 | write only              | -w- | 010    |
 | 1 | execute only            | --x | 001    |
 | 0 | none                    | --- | 000    |
+```sh
+PERMISSION      EXAMPLE
 
-For a directory, execute means you can enter a directory.
-
-| User | Group | Others | Description                                                                                          |
-| -    | -     | -      | -                                                                                                    |
-| 6    | 4     | 4      | User can read and write, everyone else can read (Default file permissions)                           |
-| 7    | 5     | 5      | User can read, write and execute, everyone else can read and execute (Default directory permissions) |
-
-- u - User
-- g - Group
-- o - Others
-- a - All of the above
+  U   G   W
+rwx rwx rwx     chmod 777 filename
+rwx rwx r-x     chmod 775 filename
+rwx r-x r-x     chmod 755 filename
+rw- rw- r--     chmod 664 filename
+rw- r-- r--     chmod 644 filename
 ```
 
 ### NETWORKING
