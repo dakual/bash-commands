@@ -45,6 +45,21 @@ lsof -u user                # List files opened by user
 watch df -h                 # Execute "df -h", showing periodic updates
 ```
 
+## SERVICE MANAGEMENT
+```sh
+service --status-all              # List all services
+
+systemctl stop <service-name>	    # Stop service
+systemctl start <service-name>    # Start service
+systemctl restart <service-name>  # Restart service
+systemctl status <service-name>   # Service status
+
+service <service-name> stop       # Stop service
+service <service-name> start      # Start service
+service <service-name> restart    # Restart service
+service <service-name> status     # Service status
+```
+
 ## USER INFORMATION AND MANAGEMENT
 ```sh
 id              # Display the user and group ids of your current user.
@@ -150,6 +165,7 @@ hostname -i           # Display the network address of the host name.
 hostname -I           # Display all local IP addresses of the host.
 wget http://domain.com/file # Download http://domain.com/file
 netstat -nutlp        # Display listening tcp and udp ports and corresponding programs
+netstat -tulpn
 netstat -i            # List all network interfaces and in/out usage
 netstat -l            # List all open ports
 traceroute example.com      # List all servers the network traffic goes through
